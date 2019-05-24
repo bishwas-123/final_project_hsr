@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/master-layout}">
+<head>
+    <link rel="icon" href="/static/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/homepage/index.css}" />
+    <title>HSR Admin Home</title>
+
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div class="row">
+        <div class="col-sm-3">
+
+            <div style="float:left;"
+                th:onclick="@{document.location='/admin/mu'}">
+                 <a class="btn btn-outline-success btn-lg">Manage Users</a>
+            </div>
+            <div style="float:left;" th:onclick="@{document.location='/admin'}">
+                <a class="btn btn-outline-success btn-lg">Manage Customers</a>
+            </div>
+
+            <div style="float:left;" th:onclick="@{document.location='/admin'}">
+                <a class="btn btn-outline-success btn-lg">Manage Rooms</a>
+            </div>
+
+            <div style="float:left;"th:onclick="@{document.location='/admin'}">
+                <a class="btn btn-outline-success btn-lg">Manage Reservation</a>
+            </div>
+
+
+
+        </div>
+        <div class="col-sm-9">
+            <h1>HSR welcomes you in our Admin portal</h1>
+            <hr/>
+            <h3>You can manage rooms, users and reports from here</h3>
+
+        </div>
+    </div>
+
+
+</th:block>
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

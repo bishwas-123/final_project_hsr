@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/user-layout}">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/homepage/index.css}" />
+    <title>Hotel Smart Reservation System - web App</title>
+
+</head>
+<body>
+<th:block layout:fragment="content">
+
+    <!-- main content -->
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+    .footer_bg{
+        position: absolute;
+        bottom:0px;
+        width:100%;
+    }
+    .main_bg {
+        margin-top: 40px;
+        margin-bottom: 60px;
+        background: white;
+    }
+
+</style>
+    <h2 th:text="${message}" style="font-weight: bolder;color: green;margin-left: 513px;top: 106px;position: absolute;">messages</h2>
+
+    <div class="main_bg">
+
+        <div class="wrap">
+            <div class="container">
+
+
+
+                <form id="formLogin">
+                    <div class="row">
+                        <!-- <h2 style="text-align:center">Login with Social Media or Manually</h2> -->
+                        <div class="vl">
+                            <span class="vl-innertext">or</span>
+                        </div>
+
+                        <div class="col">
+                            <a href="#" class="fb btn">
+                                <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+                            </a>
+                            <a href="#" class="twitter btn">
+                                <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+                            </a>
+                            <a href="#" class="google btn"><i class="fa fa-google fa-fw">
+                            </i> Login with Google+
+                            </a>
+                        </div>
+
+                        <div class="col">
+                            <div class="hide-md-lg">
+                                <p>Or sign in manually:</p>
+                            </div>
+
+                            <input type="text" th:value="admin" name="user_name" placeholder="Username" required>
+                            <input type="password" th:value="admin" name="user_password" placeholder="Password" required>
+                           <input type="submit" value="Login">
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+            <div class="container">
+                <!--
+            margin: 0px 70px 0px 70px !important;
+                border-bottom-left-radius: 12px;
+                border-bottom-right-radius: 12px;
+                 -->
+                <div class="row" >
+
+                    <div class="col">
+                        <a href="#" onclick="document.getElementById('id01').style.display='block'" style="color:white" class="btn btn-info">Sign up</a>
+                    </div>
+                    <div class="col btn-su">
+                        <a href="#" style="color:white" class="btn btn-secondary">Forgot password?</a>
+                    </div>
+
+
+
+                    <!--   <div class="col-sm-8">
+                        <a href="#" style="color:white" class="btn">Sign up</a>
+                      </div>
+                      <div class="col">
+                        <a href="#" style="color:white" class="btn">Forgot password?</a>
+                      </div> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- end of main content -->
+
+
+
+    <style>
+        /* The Modal (background) */
+
+    </style>
+
+
+    <!--<button  style="width:auto;">Login</button>*/-->
+
+    <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <form id="form-validation" method="post" action="/saveuser" class="modal-content"  style="padding: 15px;" th:object="${users}">
+            <fieldset style="font-weight: bolder;"> <h3>Register New User</h3></fieldset>
+            <div class="row">
+
+                <div class="col-sm-6">
+                   <div> <!-- person division -->
+                       <div class="input-container">
+                           <i class="fa fa-user icon"></i>
+                           <input th:value="${users.firstName}" class="form-control input-field" type="text" placeholder="First Name" name="firstName">
+                       </div>
+                       <div class="input-container">
+                           <i class="fa fa-user icon"></i>
+                           <input  th:value="${users.midName}" class="input-field form-control" type="text" placeholder="Middle Name" name="midName">
+                       </div>
+                       <div class="input-container">
+                           <i class="fa fa-user icon"></i>
+                           <input  th:value="${users.lastName}" class="input-field form-control" type="text" placeholder="Last Name" name="lastName" >
+                       </div>
+                       <div class="input-container">
+                           <i class="fa fa-phone icon"></i>
+                           <input  th:value="${users.phone}" class="input-field form-control" type="text" placeholder="Phone" name="phone">
+                       </div>
+
+                   </div>
+                    <div class="input-container">
+                        <i class="fa fa-address-card icon"></i>
+                        <input  th:value="${users.addressline}" class="input-field form-control" type="text" placeholder="AddressLine " name="addressline">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="input-container">
+                                <i class="fa fa-address-card icon"></i>
+                                <input  th:value="${users.city}" class="form-control" type="text" placeholder="City"  name="city">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="input-container">
+                                <i class="fa fa-address-card icon"></i>
+                                <input  th:value="${users.state}" class="form-control" type="text" placeholder="state" name="state">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="input-container">
+                                <i class="fa fa-address-card icon"></i>
+                                <input  th:value="${users.zipcode}" class="form-control" type="text" placeholder="Zipcode"  name="zipcode">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+
+                    <div>
+
+
+                        <!account div -->
+
+
+                        <div class="input-container">
+                            <i class="fa fa-user icon"></i>
+                            <input th:value="${users.userName}" class="input-field form-control" type="text" placeholder="Username" name="userName">
+                        </div>
+
+                        <div class="input-container">
+                            <i class="fa fa-envelope icon"></i>
+                            <input th:value="${users.emailAddress}" class="input-field form-control" type="text" placeholder="Email" name="emailAddress">
+                        </div>
+
+
+                        <div class="input-container">
+                            <i class="fa fa-key icon"></i>
+                            <input id="password1" th:value="${users.password}" class="input-field form-control" type="password" placeholder="Password"  name="password">
+                        </div>
+
+                        <div class="input-container">
+                            <i class="fa fa-key icon"></i>
+                            <input id="password2" class="input-field form-control" type="password" placeholder="Confirm Password" >
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-sm-8"></div>
+
+                <div class="col-sm-2">
+                    <button type="clear" class="btn btn-deafult">Cancel</button>
+                </div>
+                <div class="col-sm-2">
+                    <button id="btnSubmit" type="submit" class="btn btn-info">Register</button>
+                </div>
+
+                <!-- <div class="col-sm-4"></div> -->
+            </div>
+        </form>
+
+    </div>
+
+    <script>
+
+        var form = document.getElementById("form-validation");
+        form.addEventListener("submit", function(event) {
+            if (document.getElementById("password1").value != document.getElementById("password2").value) {
+                alert("Password mismatch");
+                event.preventDefault();
+                event.stopPropagation();
+            }else if(document.getElementById().va){
+
+
+            }
+        }, false);
+
+
+        // Get the modal
+        var modal = document.getElementById('id01');
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</th:block>
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

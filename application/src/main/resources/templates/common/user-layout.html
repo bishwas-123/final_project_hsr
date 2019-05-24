@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>HOTEL SMART RESERVATION SYSTEM</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css" media="all" />
+    <link th:href="@{/css/custom.css}" rel="stylesheet" type="text/css" media="all" />
+
+    <script th:src="@{/js/css3-mediaqueries.js}"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!--end slider -->
+    <!---strat-date-piker---->
+
+    <script>
+        $(function() {
+            var pull 		= $('#pull');
+            menu 		= $('nav ul');
+            menuHeight	= menu.height();
+
+            $(pull).on('click', function(e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
+
+            $(window).resize(function(){
+                var w = $(window).width();
+                if(w > 320 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- start header -->
+<div class="header_bg">
+    <div class="wrap">
+        <div class="header">
+            <a href="/user">
+                <div class="logo">
+
+                    Hotel Smart Reservation System
+                </div>
+            </a>
+            <div class="h_right">
+                <!--start menu -->
+                <ul class="menu">
+                    <li class="active"><a href="/user">Home</a></li> |
+                    <li><a href="/user/rooms">Rooms</a></li> |
+                    <li><a href="/user/reservation">Reservation</a></li> |
+                    <li><a href="#">Activities</a></li> |
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="/user/login">login</a></li>
+                    <li><a href="login.html"></a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="top-nav">
+                <nav class="clearfix">
+                    <ul>
+                        <li class="active"><a href="/user">Home</a></li> |
+                        <li><a href="/user/rooms">Rooms</a></li> |
+                        <li><a href="/user/reservation">Reservation</a></li> |
+                        <li><a href="#">Activities</a></li> |
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <a href="#" id="pull">Menu</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!--Thymeleaf placeholder for the page Content-->
+    <th:block layout:fragment="content"></th:block>
+    <!--End placeholder-->
+
+<!--Thymeleaf placeholder for additional footer content-->
+<th:block layout:fragment="footer"></th:block>
+
+
+<!-- footer section -->
+<div class="footer_bg" style="background: #1d1717 !important;
+    color: white !important;
+    font-size: 21px !important;
+    height: 153px !important;">
+    <div class="wrap">
+        <div class="footer">
+            <div class="copy">
+                <p class="link"><span>Final Project &nbsp;<a href="#"></a> Online Hotel Smart Reservation</span></p>
+            </div>
+            <div class="f_nav">
+                <ul>
+                    <li><a href="/user">home</a></li>
+                    <li><a href="/">rooms & suits</a></li>
+                    <li><a href="/">reservation</a></li>
+                    <li><a href="/">Contact</a></li>
+                </ul>
+            </div>
+            <div class="soc_icons">
+                <ul>
+                    <li><a class="icon1" href="#"></a></li>
+                    <li><a class="icon2" href="#"></a></li>
+                    <li><a class="icon3" href="#"></a></li>
+                    <li><a class="icon4" href="#"></a></li>
+                    <li><a class="icon5" href="#"></a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<!-- footer section end -->
+</body>
+</html>
+
+

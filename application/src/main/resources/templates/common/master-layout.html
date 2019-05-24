@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style type="text/css">
+
+        .header {
+            padding: 1% !important;
+        }
+        .header_bg {
+
+            height: 62px;
+        }
+
+    </style>
+    <title>HOTEL SMART RESERVATION SYSTEM</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700" rel="stylesheet" type="text/css">
+<!--    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+<!--    <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/custom.css}" />
+<!--    <script th:src="js/css3-mediaqueries.js"></script>-->
+    <script th:src="@{/js/css3-mediaqueries.js}"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!--nav-->
+    <script>
+        $(function() {
+            var pull 		= $('#pull');
+            menu 		= $('nav ul');
+            menuHeight	= menu.height();
+
+            $(pull).on('click', function(e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
+
+            $(window).resize(function(){
+                var w = $(window).width();
+                if(w > 320 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<!-- start header -->
+<div class="header_bg">
+    <div class="wrap">
+        <div class="header">
+            <a href="/">
+            <div class="logo">
+                HRS Admin Panel
+            </div>
+            </a>
+            <div class="h_right">
+                <!--start menu -->
+                <ul class="menu">
+                    <li class="active"><a href="/">View Customers</a></li> |
+                    <li><a href="#">Room Management</a></li> |
+                    <li><a href="#">Reservation</a></li> |
+                    <li><a href="#">User Management</a></li> |
+
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="clear"></div>
+            <div class="top-nav">
+                <nav class="clearfix">
+                    <ul>
+                        <li class="active"><a href="index.html">hotel</a></li>
+                        <li><a href="#">rooms & suits</a></li>
+                        <li><a href="#">reservation</a></li>
+                        <li><a href="#">activities</a></li>
+                        <li><a href="#">contact</a></li>
+                    </ul>
+                    <a href="#" id="pull">Menu</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!--Thymeleaf placeholder for the page Content-->
+    <th:block layout:fragment="content"></th:block>
+    <!--End placeholder-->
+
+<!--Thymeleaf placeholder for additional footer content-->
+<th:block layout:fragment="footer"></th:block>
+
+
+<!-- footer section -->
+<div class="footer_bg" style="background: #1d1717 !important;
+position:absolute;
+bottom:0px;
+width:100%;
+    color: white !important;
+    font-size: 21px !important;
+    height: 153px !important;">
+    <div class="wrap">
+        <div class="footer">
+            <div class="copy">
+                <p class="link"><span>Final Project &nbsp;<a href="#"></a> Online Hotel Smart Reservation</span></p>
+            </div>
+            <div class="f_nav">
+                <ul>
+                    <li><a href="/">home</a></li>
+                    <li><a href="/">rooms & suits</a></li>
+                    <li><a href="/">reservation</a></li>
+                    <li><a href="/">Contact</a></li>
+                </ul>
+            </div>
+            <div class="soc_icons">
+                <ul>
+                    <li><a class="icon1" href="#"></a></li>
+                    <li><a class="icon2" href="#"></a></li>
+                    <li><a class="icon3" href="#"></a></li>
+                    <li><a class="icon4" href="#"></a></li>
+                    <li><a class="icon5" href="#"></a></li>
+                    <div class="clear"></div>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<!-- footer section end -->
+</body>
+</html>
+
+

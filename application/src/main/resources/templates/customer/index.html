@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/user-layout}">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/homepage/index.css}" />
+    <title>Hotel Smart Reservation System - web App</title>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <!--start slider -->
+    <link rel="stylesheet" th:href="@{/css/fwslider.css}" media="all">
+    <script th:src="@{/js/jquery-ui.min.js}"></script>
+    <script th:src="@{/js/fwslider.js}"></script>
+    <link rel="stylesheet" th:href="@{css/jquery-ui.css}" />
+    <script th:src="@{/js/jquery-ui.js}"></script>
+    <script>
+        $(function() {
+            $( "#datepicker,#datepicker1" ).datepicker();
+        });
+    </script>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <!----start-images-slider---->
+    <div class="images-slider">
+        <!-- start slider -->
+        <div id="fwslider">
+            <div class="slider_container">
+                <div class="slide">
+                    <!-- Slide image -->
+                    <img th:src="@{/images/slider-bg.jpg}" alt=""/>
+                    <!-- /Slide image -->
+                    <!-- Texts container -->
+                    <div class="slide_content">
+                        <div class="slide_content_wrap">
+                            <!-- Text title -->
+                            <h4 class="title"><i class="bg"></i>Our Hotel -  <span class="hide">Feel Like Home</span></h4>
+                            <!-- <h4 class="title1"><i class="bg"></i>Hotel Reservation <span class="hide" >Smart Reservation</span></h4> -->
+                            <!-- /Text title -->
+                        </div>
+                    </div>
+                    <!-- /Texts container -->
+                </div>
+
+            </div>
+
+        </div>
+        <!--/slider -->
+    </div>
+    <!--start main -->
+    <div class="main_bg">
+        <div class="wrap">
+            <div class="online_reservation">
+                <div class="b_room" style=" margin: 2% 2%;
+    display: inline-flex;
+    box-shadow: 0px 0px 4px rgb(97, 97, 97);
+    -webkit-box-shadow: 0px 0px 4px rgb(97, 97, 97);">
+                    <div class="booking_room">
+                        <h4>book a room online</h4>
+                        <p>you can reserve your space quickly !!</p>
+                    </div>
+                    <div class="reservation">
+                        <ul>
+                            <li class="span1_of_1">
+                                <h5>type of room:</h5>
+                                <!----------start section_room----------->
+                                <div class="section_room">
+                                    <select id="country" onchange="change_country(this.value)" class="frm-field required">
+                                        <option value="null">Select a type of room</option>
+                                        <option value="null">Suite room</option>
+                                        <option value="AX">Single room</option>
+                                        <option value="AX">Double room</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li  class="span1_of_1 left">
+                                <h5>check-in-date:</h5>
+                                <div class="book_date">
+                                    <form>
+                                        <input class="date" id="datepicker" type="text" value="DD/MM/YY" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'DD/MM/YY';}">
+                                    </form>
+
+                                </div>
+                            </li>
+                            <li  class="span1_of_1 left">
+                                <h5>check-out-date:</h5>
+                                <div class="book_date">
+                                    <form>
+                                        <input class="date" id="datepicker1" type="text" value="DD/MM/YY" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'DD/MM/YY';}">
+                                    </form>
+                                </div>
+                            </li>
+                            <li class="span1_of_2 left">
+                                <h5>Adults:</h5>
+                                <!----------start section_room----------->
+                                <div class="section_room">
+                                    <select id="country" onchange="change_country(this.value)" class="frm-field required">
+                                        <option value="null">1</option>
+                                        <option value="null">2</option>
+                                        <option value="AX">3</option>
+                                        <option value="AX">4</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="span1_of_3">
+                                <div class="date_btn">
+                                    <form action="/user/reservation">
+                                        <input type="submit" value="book now" />
+                                    </form>
+                                </div>
+                            </li>
+                            <div class="clear"></div>
+                        </ul>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <!--start grids_of_3 -->
+            <div class="grids_of_3">
+                <div class="grid1_of_3">
+                    <div class="grid1_of_3_img">
+                        <a href="#">
+                            <img th:src="@{images/pic2.jpg}" alt="" />
+                            <span class="next"> </span>
+                        </a>
+                    </div>
+                    <h4><a href="#">single room<span>120$</span></a></h4>
+                    <p> Our single rooms are ideal for one person. Our single rooms overlook the street, and all have double glazing. Single rooms have a single bed (120cm), en-suite bathroom with bath and toilet. For children under the age of 2, cots are available and can be requested at the time of booking.</p>
+                </div>
+                <div class="grid1_of_3">
+                    <div class="grid1_of_3_img">
+                        <a href="#">
+                            <img th:src="@{/images/pic1.jpg}" alt="" />
+
+                            <span class="next"> </span>
+                        </a>
+                    </div>
+                    <h4><a href="#">double room<span>180$</span></a></h4>
+                    <p>a double room will generally be 1 bed for two people, the bed will either be a Double, Queen or King size bed, if you are traveling with friends and want to share a room you need to book a twin room which will have to single beds in.</p>
+                </div>
+                <div class="grid1_of_3">
+                    <div class="grid1_of_3_img">
+                        <a href="#">
+                            <img th:src="@{/images/pic3.jpg}" alt="" />
+                            <span class="next"> </span>
+                        </a>
+                    </div>
+                    <h4><a href="#">suite room<span>210$</span></a></h4>
+                    <p>A "suite" also generally means a separate living room area, like a sofa or chairs, and may include a kitchenette or even a full kitchen. Suites generally offer a bit more room to spread out than the average hotel room and may include a sofa bed for an extra guest.</p>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+
+</th:block>
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

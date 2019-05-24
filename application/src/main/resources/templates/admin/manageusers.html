@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/master-layout}">
+<head>
+    <link rel="icon" href="/static/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/homepage/index.css}" />
+    <title>HSR Admin Home</title>
+
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div class="row">
+
+        <div class="col-sm-3">
+            <div style="float:left;"
+                 th:onclick="@{document.location='/admin/manageusers'}">
+                <a class="btn btn-outline-success btn-lg">Manage Users</a>
+            </div>
+            <div style="float:left;" th:onclick="@{document.location='/admin/managecustomer'}">
+                <a class="btn btn-outline-success btn-lg">Manage Customers</a>
+            </div>
+            <div style="float:left;" th:onclick="@{document.location='/admin'}">
+                <a class="btn btn-outline-success btn-lg">Manage Rooms</a>
+            </div>
+            <div style="float:left;"th:onclick="@{document.location='/admin'}">
+                <a class="btn btn-outline-success btn-lg">Manage Reservation</a>
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+<!--  col-9 start ---->
+        <div class="col-sm-9">
+            <th:block layout:fragment="content">
+                <div>
+                    <span style="font-size: 1.5em">List of Users</span>
+                    <span style="float:right;">
+                <a class="btn btn-outline-success btn-lg" href="/admin/newuser">Add a New User</a>
+            </span>
+                </div>
+                <p>&nbsp;</p>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Email Address</th>
+                        <th scope="col">Created On</th>
+                        <th scope="col">Password</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Alternative non-obstrusive js solution for <tr onclick>:
+                        HTML markup: <tr data-href="some-url">
+                        JS function using JQuery: $('tr[data-href]').on("click", function() {
+                                                    document.location = $(this).data('href');
+                                                });
+                     -->
+                    <!--                    <tr title="click to edit" class="datarow" th:each="account, iterStat : ${accounts}">-->
+                    <!--                        th:onclick="@{document.location='/admin/viewperson/{accountId}'(accountId=${account.id})}">-->
+                    <!--                        <th scope="row" th:text="${iterStat.count}+'.'"></th>-->
+                    <!--                        <td th:text="${account.person.fullName()}"></td>-->
+                    <!--                        <td th:text="${account.userName}"></td>-->
+                    <!--                        <td th:text="${account.emailAddress}"></td>-->
+                    <!--                        <td th:text="${account.createdDate}"></td>-->
+                    <!--                        <td th:onclick="${account.resetPassword()}">Reset</td>-->
+                    <!--                    </tr>-->
+                    </tbody>
+                </table>
+            </th:block>
+
+        </div>
+
+<!-- col-9 end  -->
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+</th:block>
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

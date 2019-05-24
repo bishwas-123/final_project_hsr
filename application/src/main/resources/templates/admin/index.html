@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/master-layout}">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/homepage/index.css}" />
+    <title>Products Management System - a Spring Boot demo webapp for CS425-SWE Final Exam</title>
+
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1>Do Better Customer</h1>
+            <p>Understand your customers and build better products with confidence</p>
+
+
+            <p>The customer research platform for data-driven product teams</p>
+
+            <p>Get all your customer feedback and user research in one place</p>
+        </div>
+        <div cla="col-sm-4"></div>
+    </div>
+
+
+</th:block>
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>

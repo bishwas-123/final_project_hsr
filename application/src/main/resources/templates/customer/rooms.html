@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/user-layout}">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/homepage/index.css}" />
+    <title>Hotel Smart Reservation System - web App</title>
+
+</head>
+<body>
+<th:block layout:fragment="content">
+    <!--start main -->
+    <div class="main_bg" style="margin-top:0px;margin-bottom: 0px;">
+        <div class="wrap">
+            <div class="main">
+                <div class="content">
+                    <div class="room">
+                        <h4>Hotel Smart Reservation</h4>
+                        <p class="para">A hotel reservation system enables guests to schedule dates and length of stay, room selection, extras, and payment all in one place. Most of the tourist they can book the hotel from the airport via online. A hotel reservation system enables guests to schedule dates and length of stay, room selection, extras, and payment all in one place. Most of the tourist they can book the hotel from the airport via online.</p>
+                    </div>
+                    <div class="grids_of_2">
+                        <div class="grids_of_img">
+                            <img th:src="@{/images/pic4.jpg}" alt=""/>
+                        </div>
+                        <div class="grids_of_para">
+                            <p class="para">A hotel reservation system enables guests to schedule dates and length of stay, room selection, extras, and payment all in one place. Most of the tourist they can book the hotel from the airport via online. A hotel reservation system enables guests to schedule dates and length of stay, room selection, extras, and payment all in one place. Most of the tourist they can book the hotel from the airport via online</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="grids_of_2">
+                        <div class="grids_of_img">
+                            <img th:src="@{/images/pic5.jpg}" alt=""/>
+                        </div>
+                        <div class="grids_of_para">
+                            <p class="para">A hotel reservation system enables guests to schedule dates and length of stay, room selection, extras, and payment all in one place. Most of the tourist they can book the hotel from the airport via online. A hotel reservation system enables guests to schedule dates and length of stay, room selection, extras, and payment all in one place. Most of the tourist they can book the hotel from the airport via online</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+                <div class="sidebar">
+                    <div class="date_btn">
+                        <form action="/user/reservation">
+                            <input type="submit" value="book now" style="width: 82px;">
+                        </form>
+                    </div>
+                    <h4>Room features</h4>
+                    <ul class="s_nav">
+                        <li><a href="#">Tv Room </a></li>
+                        <li><a href="#">Underlit bed</a></li>
+                        <li><a href="#">Balcony with a view</a></li>
+                        <li><a href="#">Hammock</a></li>
+                        <li><a href="#">A really cool and spacious bathroom</a></li>
+                    </ul>
+                    <h4>we accept</h4>
+                    <ul class="s_nav1">
+                        <li><a class="icon1" href="#"></a></li>
+                        <li><a class="icon2" href="#"></a></li>
+                        <li><a class="icon3" href="#"></a></li>
+                        <li><a class="icon4" href="#"></a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!--start main -->
+
+
+</th:block>
+
+<th:block layout:fragment="footer"></th:block>
+
+</body>
+</html>
