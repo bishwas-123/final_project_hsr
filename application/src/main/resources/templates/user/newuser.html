@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/masterlayout}">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/products/index.css}"/>
+    <title>HSR>>User</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+          <form id="newRoom" method="post" action="/hsr/user/save" th:object="${user}">
+                <fieldset>
+                    <legend>New User Details</legend>
+                    <input type="hidden" name="userId" th:value="${user.id}"/>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="userName">UserName</label>
+                                <span th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"
+                                      class="alert alert-danger"></span>
+                                <input id="userName" name="userName" type="text" class="form-control"
+                                       th:value="${user.userName}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                                      class="alert alert-danger"></span>
+                                <input id="password" name="password" type="password" class="form-control"
+                                       th:value="${user.password}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="firstName">First name</label>
+                                <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"
+                                      class="alert alert-danger"></span>
+                                <input id="firstName" name="firstName" type="text" class="form-control"
+                                       th:value="${user.firstName}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last name</label>
+                                <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
+                                      class="alert alert-danger"></span>
+                                <input id="lastName" name="lastName" type="text" class="form-control"
+                                       th:value="${user.lastName}" required>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+
+                            <div class="form-group">
+                                <label for="midName">Middle name</label>
+                                <span th:if="${#fields.hasErrors('midName')}" th:errors="*{midName}"
+                                      class="alert alert-danger"></span>
+                                <input id="midName" name="midName" type="text" class="form-control"
+                                       th:value="${user.midName}">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"
+                                      class="alert alert-danger"></span>
+                                <input id="phone" name="phone" type="text" class="form-control"
+                                       th:value="${user.phone}" required>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label for="emailAddress">Email Address</label>
+                                <span th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}"
+                                      class="alert alert-danger"></span>
+                                <input id="emailAddress" name="emailAddress" type="email" class="form-control"
+                                       th:value="${user.emailAddress}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="role">Role</label>
+                                <span th:if="${#fields.hasErrors('role')}" th:errors="*{role}"
+                                      class="alert alert-danger"></span>
+                                <select name="role" id="role" class="form-control" required>
+                                    <option th:value="Customer" th:text="Customer"></option>
+                                    <option th:value="Staff" th:text="Staff"></option>
+                                    <option th:value="Manager" th:text="Manager"></option>
+                                    <option th:value="Admin" th:text="Admin"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <legend>Address</legend>
+                            <div class="form-group">
+                                <label for="addressLine">Address Line</label>
+                                <span th:if="${#fields.hasErrors('addressLine')}" th:errors="*{addressLine}"
+                                      class="alert alert-danger"></span>
+                                <input id="addressLine" name="addressLine" type="text" class="form-control"
+                                       th:value="${user.addressLine}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}"
+                                      class="alert alert-danger"></span>
+                                <input id="city" name="city" type="text" class="form-control"
+                                       th:value="${user.city}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <span th:if="${#fields.hasErrors('state')}" th:errors="*{state}"
+                                      class="alert alert-danger"></span>
+                                <input id="state" name="state" type="text" class="form-control"
+                                       th:value="${user.state}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="zipCode">Zip code</label>
+                                <span th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}"
+                                      class="alert alert-danger"></span>
+                                <input id="zipCode" name="zipCode" type="text" class="form-control"
+                                       th:value="${user.zipCode}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country</label>
+                                <span th:if="${#fields.hasErrors('country')}" th:errors="*{country}"
+                                      class="alert alert-danger"></span>
+                                <input id="country" name="country" type="text" class="form-control"
+                                       th:value="${user.country}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div style="float:left;">
+                        <button type="reset" class="btn btn-outline-warning">Reset</button>
+                        <a href="/hsr/users/view" class="btn btn-outline-warning">Cancel</a>&nbsp;&nbsp;&nbsp;
+                        <button id="btnSubmit" type="submit" class="btn btn-outline-success">Save</button>
+                    </div>
+
+
+
+
+                </fieldset>
+            </form>
+</th:block>
+
+<th:block layout:fragment="footer">1000N 4th Stree, Fairfield, Iowa 52557, USA</th:block>
+
+</body>
+</html>

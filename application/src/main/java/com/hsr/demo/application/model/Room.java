@@ -1,17 +1,25 @@
 package com.hsr.demo.application.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 
 @Entity
 public class Room {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(unique = true)
+    @NotNull(message = "Room number must be unique and not null")
     private String roomNumber;
     private Double price;
     private String status;
     private String roomType;
     private String bedType;
+    @Lob
+    private String description;
+    private String features;
+    private String imageLocation;
 
     public Room(String roomNumber, Double price, String status, String roomType, String bedType) {
         this.roomNumber = roomNumber;
@@ -70,5 +78,29 @@ public class Room {
 
     public void setBedType(String bedType) {
         this.bedType = bedType;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getFeatures() {
+        return features;
+    }
+
+    public void setFeatures(String features) {
+        this.features = features;
+    }
+
+    public String getImageLocation() {
+        return imageLocation;
+    }
+
+    public void setImageLocation(String imageLocation) {
+        this.imageLocation = imageLocation;
     }
 }

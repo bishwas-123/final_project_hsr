@@ -3,6 +3,8 @@ package com.hsr.demo.application.model;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+import static java.time.temporal.ChronoUnit.DAYS;
+
 @Entity
 public class Reservation {
     @Id
@@ -13,9 +15,10 @@ public class Reservation {
     private LocalDate checkinDate;
     private LocalDate checkoutDate;
     private Integer numberOfOccupants;
-    private Double amount;
+    private Double amount=0d;
     private Double balance;
     private String confirmationCode;
+
     @ManyToOne(fetch = FetchType.LAZY,optional = false)
     private User user;
 
@@ -95,8 +98,9 @@ public class Reservation {
         return confirmationCode;
     }
 
-    public void setConfirmationCode(String confirmationCode) {
-        this.confirmationCode = confirmationCode;
+    public String setConfirmationCode() {
+        this.confirmationCode = "hsr"+Math.random()*(98765432)+23456789;
+        return getConfirmationCode();
     }
 
     public User getUser() {
@@ -114,4 +118,20 @@ public class Reservation {
     public void setRoom(Room room) {
         this.room = room;
     }
+
+    public double calculateAmount(){
+        long daysBetween = DAYS.between(checkinDate, checkoutDate);
+        if(room.getRoomType().equalsIgnoreCase("Suits"))
+            this.amount=(double)daysBetween*120;
+        if(room.getRoomType().equalsIgnoreCase("Double"))
+            this.amount=(double)daysBetween*100;
+        if(room.getRoomType().equalsIgnoreCase("Single"))
+            this.amount=(double)daysBetween*80;
+        return getAmount();
+    }
+
+    public void setConfirmationCode(String confirmationCode) {
+        this.confirmationCode = confirmationCode;
+    }
+
 }

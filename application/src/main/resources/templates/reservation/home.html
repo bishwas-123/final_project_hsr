@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/masterlayout}">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/products/index.css}"/>
+    <title>HSR>>Reservation</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div class="row">
+        <div class="col-sm-3">
+            <a href="#" class="btn btn-outline-success">Explore Room</a><hr width="250"/>
+            <a href="#" class="btn btn-outline-success">View My Reservation</a><hr width="250"/>
+            <a href="#" class="btn btn-outline-success">Modify My Reservation</a><hr width="250"/>
+        </div>
+        <div class="col-sm-9">
+            <form id="newReservation" method="post" action="/hsr/savereservation" th:object="${reservation}">
+                <fieldset>
+                    <legend>New Reservation</legend>
+                    <input type="hidden" name="reservationId" th:value="${reservation.id}"/>
+
+                    <div class="row">
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="checkinDate">Check-In Date</label>
+                                <span th:if="${#fields.hasErrors('checkinDate')}" th:errors="*{checkinDate}"
+                                  class="alert alert-danger"></span>
+                                <input id="checkinDate" name="checkinDate" type="date" class="form-control"
+                                   th:value="${reservation.checkinDate}" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="room">Room Type</label>
+                                <span th:if="${#fields.hasErrors('room')}" th:errors="*{room.roomType}"
+                                      class="alert alert-danger"></span>
+                                <select name="room" id="room" class="form-control" required>
+                                    <option disabled selected>-select-</option>
+                                    <option th:value="Suits" th:text="Suits"></option>
+                                    <option th:value="Single" th:text="Single"></option>
+                                    <option th:value="Double" th:text="Double"></option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="checkoutDate">Check-Out Date</label>
+                                <span th:if="${#fields.hasErrors('checkoutDate')}" th:errors="*{checkoutDate}"
+                                      class="alert alert-danger"></span>
+                                <input id="checkoutDate" name="checkoutDate" type="date" class="form-control"
+                                       th:value="${reservation.checkinDate}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="numberOfOccupants">Number of Occupants</label>
+                                <span th:if="${#fields.hasErrors('numberOfOccupants')}" th:errors="*{numberOfOccupants}"
+                                      class="alert alert-danger"></span>
+                                <select name="numberOfOccupants" id="numberOfOccupants" class="form-control" required>
+                                    <option th:value="1" th:text="1"></option>
+                                    <option th:value="2" th:text="2"></option>
+                                    <option th:value="3" th:text="3"></option>
+                                    <option th:value="4" th:text="4"></option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <label>Charging matrix per day (starting from 12 noon)*</label>
+                    <table cellpadding="5" cellspacing="5" border="2">
+                        <thead>
+                            <td>Room\Bed</td>
+                            <td>Double</td>
+                            <td>Twin</td>
+                            <td>Queen</td>
+                            <td>King</td>
+                        </thead>
+                        <tr>
+                            <td>Suits</td>
+                            <td>120</td>
+                            <td>130</td>
+                            <td>140</td>
+                            <td>150</td>
+                        </tr>
+                        <tr>
+                            <td>Double</td>
+                            <td>100</td>
+                            <td>110</td>
+                            <td>120</td>
+                            <td>130</td>
+                        </tr>
+                        <tr>
+                            <td>Single</td>
+                            <td>80</td>
+                            <td>90</td>
+                            <td>100</td>
+                            <td>110</td>
+                        </tr>
+                        <tr><td colspan="5">*Addition $20 per additional occupant</td> </tr>
+                    </table><br><br>
+
+
+
+
+                    <div style="float:left;">
+                        <button type="reset" class="btn btn-outline-warning">Reset</button>
+                        <a href="/hsr/viewrooms" class="btn btn-outline-warning">Cancel</a>&nbsp;&nbsp;&nbsp;
+                        <button id="btnSubmit" type="submit" class="btn btn-outline-success">Save</button>
+                    </div>
+
+
+
+
+                </fieldset>
+            </form>
+
+        </div>
+    </div>
+</th:block>
+
+<th:block layout:fragment="footer">1000N 4th Stree, Fairfield, Iowa 52557, USA</th:block>
+
+</body>
+</html>

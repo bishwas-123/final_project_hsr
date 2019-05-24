@@ -1,13 +1,20 @@
 @charset "utf-8";
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 40px;
+    /* Margin bottom by footer height */
+    margin-bottom: 40px;
 }
+
+.navbar-dark .navbar-nav .nav-link {
+    color: yellow;
+    font-weight: bold;
+}
+
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -17,9 +24,7 @@ body {
     line-height: 40px; /* Vertically center the text there */
     background-color: #f5f5f5;
 }
+
 tr.datarow {
     cursor: pointer;
-}
-.bg-dark {
-    background-color: #2c2c5f!important;
 }

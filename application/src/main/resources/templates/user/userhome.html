@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/masterlayout}">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/products/index.css}"/>
+    <title>HSR>>User</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div class="row">
+        <div class="col-sm-2">
+            <a href="/hsr/users/new" class="btn btn-outline-success">Add User</a><hr width="250"/>
+            <a href="/hsr/users/view" class="btn btn-outline-success">View User</a><hr width="250"/>
+            <a href="#" class="btn btn-outline-success">Manage User</a><hr width="250"/>
+        </div>
+        <div class="col-sm-10">
+            <h1>/ \</h1>
+            <h1>|&nbsp;&nbsp;|</h1>
+            <hr>
+            <h3>User Home</h3>
+            <hr>
+            <h5>I have not lost my mind. <br> Half of it just wandered off and the other half went looking for it.</h5>
+            <br><h6>puckology</h6>
+        </div>
+    </div>
+</th:block>
+
+<th:block layout:fragment="footer">1000N 4th Stree, Fairfield, Iowa 52557, USA</th:block>
+
+</body>
+</html>

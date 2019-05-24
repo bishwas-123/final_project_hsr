@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/masterlayout}">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/products/index.css}"/>
+    <title>HSR>>Package</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <h3 > "People say nothing is impossible.<br> But I do nothing every day."</h3>
+           <img alt="package1 image" th:src="@{/images/pkg1.jpg}">
+
+</th:block>
+
+<th:block layout:fragment="footer">1000N 4th Stree, Fairfield, Iowa 52557, USA</th:block>
+
+</body>
+
+</html>

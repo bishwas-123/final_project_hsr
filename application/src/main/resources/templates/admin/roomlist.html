@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/masterlayout}">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/products/index.css}"/>
+    <title>HSR>>Room</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div>
+        <span style="font-size: 1.5em">List of Rooms</span>
+        <span style="float:right;">
+                <a class="btn btn-outline-success btn-lg" href="/hsr/newroom">Add a New Room</a>
+            </span>
+    </div>
+    <p>&nbsp;</p>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Room Number</th>
+            <th scope="col">Room Type</th>
+            <th scope="col">Status</th>
+            <th scope="col">Bed Type</th>
+            <th scope="col">Price</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr title="click to edit" class="datarow" th:each="room,iterStat : ${roomList}"
+            th:onclick="@{document.location='/hsr/rooms/edit/{roomId}'(roomId=${room.id})}">
+            <th scope="row" th:text="${iterStat.count}+'.'"></th>
+            <td th:text="${room.roomNumber}"></td>
+            <td th:text="${room.getRoomType()}"></td>
+            <td th:text="${room.getStatus()}"></td>
+            <td th:text="${room.getBedType()}"></td>
+            <td th:text="${#numbers.formatCurrency(room.getPrice())}"></td>
+        </tr>
+        </tbody>
+    </table>
+</th:block>
+
+<th:block layout:fragment="footer">Admin Page</th:block>
+
+</body>
+</html>

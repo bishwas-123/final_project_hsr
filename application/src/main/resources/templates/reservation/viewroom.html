@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/masterlayout}">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/products/index.css}"/>
+    <title>HSR>>Reservation</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div class="row">
+        <div class="col-sm-3"><span style="float: left;">
+            <a href="#" class="btn btn-outline-success">Explore Room</a><hr width="250"/>
+            <a href="#" class="btn btn-outline-success">View My Reservation</a><hr width="250"/>
+            <a href="#" class="btn btn-outline-success">Modify My Reservation</a><hr width="250"/></span>
+        </div>
+    </div>
+</th:block>
+
+<th:block layout:fragment="footer">1000N 4th Stree, Fairfield, Iowa 52557, USA</th:block>
+
+</body>
+</html>

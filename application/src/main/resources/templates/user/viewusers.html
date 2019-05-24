@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/masterlayout}">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/products/index.css}"/>
+    <title>HSR>>User</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div>
+        <span style="font-size: 1.5em">List of Users</span>
+        <span style="float:right;">
+                <a class="btn btn-outline-success btn-lg" href="/hsr/users/new">Add a New User</a>
+            </span>
+    </div>
+    <p>&nbsp;</p>
+
+           <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Full name</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Email Address</th>
+                    <th scope="col">Address</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr title="click to edit" class="datarow" th:each="user,iterStat : ${userList}">
+                    <th scope="row" th:text="${iterStat.count}+'.'"></th>
+                    <td th:text="${user.userName}"></td>
+                    <td th:text="${user.role}"></td>
+                    <td th:text="${user.userName()}"></td>
+                    <td th:text="${user.phone}"></td>
+                    <td th:text="${user.emailAddress}"></td>
+                    <td th:text="${user.userAddress()}"></td>
+                </tr>
+                </tbody>
+            </table>
+</th:block>
+
+<th:block layout:fragment="footer">1000N 4th Stree, Fairfield, Iowa 52557, USA</th:block>
+
+</body>
+</html>

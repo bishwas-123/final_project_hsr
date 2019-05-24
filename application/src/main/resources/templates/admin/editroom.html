@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/masterlayout}">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/homepage/index.css}"/>
+    <title>HSR>>Room</title>
+</head>
+<body onload="document.querySelector('#roomNumber').focus();">
+<th:block layout:fragment="content">
+    <div>
+        <span style="font-size: 1.5em">Details of Room: [[${room.roomNumber}]]</span>
+        <span style="float:right;"> &nbsp;&nbsp;&nbsp;
+            <div style="float:right;">
+                <a href="/hsr/viewrooms" class="btn btn-outline-warning">Back</a>
+            </div>
+        </span>
+    </div>
+    <p>&nbsp;</p>
+    <form id="roomEdit" method="post" action="/hsr/room/save" th:object="${room}">
+        <fieldset>
+
+            <input type="hidden" name="roomId" th:value="${room.id}"/>
+            <div class="form-group">
+                <label for="roomNumber">Room Number</label>
+                <span th:if="${#fields.hasErrors('roomNumber')}" th:errors="*{roomNumber}"
+                      class="alert alert-danger"></span>
+                <input id="roomNumber" name="roomNumber" type="text" class="form-control"
+                       th:value="${room.roomNumber}">
+            </div>
+            <div class="form-group">
+                <label for="roomType">Room Type</label>
+                <span th:if="${#fields.hasErrors('roomType')}" th:errors="*{roomType}"
+                      class="alert alert-danger"></span>
+                <select name="roomType" id="roomType" class="form-control" required>
+                    <option disabled>-select-</option>
+                    <option th:value="Suits" th:text="Suits"></option>
+                    <option th:value="Single" th:text="Single"></option>
+                    <option th:value="Double" th:text="Double"></option>
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <span th:if="${#fields.hasErrors('status')}" th:errors="*{status}"
+                      class="alert alert-danger"></span>
+                <select name="status" id="status" class="form-control" required>
+                    <option disabled>-select-</option>
+                    <option th:value="Available" th:text="Available"></option>
+                    <option th:value="Reserved" th:text="Reserved"></option>
+                    <option th:value="Hold" th:text="Hold"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="bedType">Bed Type</label>
+                <span th:if="${#fields.hasErrors('bedType')}" th:errors="*{bedType}"
+                      class="alert alert-danger"></span>
+                <select name="bedType" id="bedType" class="form-control" required>
+                    <option disabled>-select-</option>
+                    <option th:value="King" th:text="King"></option>
+                    <option th:value="Queen" th:text="Queen"></option>
+                    <option th:value="Twin" th:text="Twin"></option>
+                    <option th:value="Double" th:text="Double"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"
+                      class="alert alert-danger"></span>
+                <input id="price" name="price" type="" class="form-control"
+                       th:value="${room.price}">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+                      class="alert alert-danger"></span>
+                <textarea id="description" name="description"  rows = "5" class="form-control"
+                          th:value="${room.description}" th:text="${room.description}"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="imageLocation">Image Location</label>
+                <span th:if="${#fields.hasErrors('imageLocation')}" th:errors="*{imageLocation}"
+                      class="alert alert-danger"></span>
+                <input id="imageLocation" name="imageLocation" type="text" class="form-control"
+                       th:value="${room.imageLocation}">
+            </div>
+
+            <div class="form-group">
+                <label for="features">Features</label>
+                <span th:if="${#fields.hasErrors('features')}" th:errors="*{features}"
+                      class="alert alert-danger"></span>
+                <textarea id="features" name="features" rows = "5" class="form-control"
+                          th:value="${room.features}" th:text="${room.features}"></textarea>
+            </div>
+
+            <div style="float:right;">
+                <a th:onclick="@{document.location='/hsr/viewrooms'}"
+                   class="btn btn-outline-warning">Cancel</a>&nbsp;&nbsp;&nbsp;
+                <button id="btnSubmit" type="submit" class="btn btn-outline-success">Save</button>
+            </div>
+
+        </fieldset>
+    </form>
+</th:block>
+
+<th:block layout:fragment="footer">Admin Page</th:block>
+
+</body>
+</html>

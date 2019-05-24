@@ -1,7 +1,11 @@
 package com.hsr.demo.application.model;
+
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+
 @Entity
 public class User {
     @Id
@@ -17,68 +21,32 @@ public class User {
 
 
     @NotNull(message = "First name is required")
-    private String firstName;
+    private String firstName="";
 
-    private String midName;
+    private String midName="";
 
     @NotNull(message = "Last name is required")
-    private String lastName;
+    private String lastName="";
 
     @NotNull(message = "Phone number is required")
-    private String phone;
+    private String phone="";
 
     @NotNull(message = "Email address is required")
-    private String emailAddress;
-
-    @NotNull(message = "Address is required")
-    private String addressline;
-    @NotNull(message = "City is required")
-    private String city;
-
-    @NotNull(message = "State is required")
-    private String state;
-
-    @NotNull(message = "Zipcode is required")
-    private String zipcode;
+    @Email
+    private String emailAddress="";
 
 
-    private String role;
+    private String addressLine="";
+    private String city="";
+    private String State="";
+    private String zipCode="";
+    private String country="";
+
+    private String role="";
 
     private LocalDate createDate;
 
-    public String getAddressline() {
-        return addressline;
-    }
-
-    public void setAddressline(String addressline) {
-        this.addressline = addressline;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
-    }
-
-    public User(String userName,String password,String firstName, String midName,String lastName,String phone,  String emailAddress, String addressline,  String city, String state,String zipcode, String role, LocalDate createDate) {
+    public User(@NotNull(message = "User name is required") String userName, @NotNull(message = "Password is required") String password, @NotNull(message = "First name is required") String firstName, String midName, @NotNull(message = "Last name is required") String lastName, @NotNull(message = "Phone number is required") String phone, @NotNull(message = "Email address is required") @Email String emailAddress) {
         this.userName = userName;
         this.password = password;
         this.firstName = firstName;
@@ -86,25 +54,9 @@ public class User {
         this.lastName = lastName;
         this.phone = phone;
         this.emailAddress = emailAddress;
-        this.addressline = addressline;
-        this.city = city;
-        this.state = state;
-        this.zipcode = zipcode;
-        this.role = "User";
         this.createDate = LocalDate.now();
-    }
 
-//    public User(@NotNull(message = "User name is required") String userName, @NotNull(message = "Password is required") String password, @NotNull(message = "First name is required") String firstName, String midName, @NotNull(message = "Last name is required") String lastName, @NotNull(message = "Phone number is required") String phone, @NotNull(message = "Email address is required") @Email String emailAddress) {
-//        this.userName = userName;
-//        this.password = password;
-//        this.firstName = firstName;
-//        this.midName = midName;
-//        this.lastName = lastName;
-//        this.phone = phone;
-//        this.emailAddress = emailAddress;
-//        this.createDate = LocalDate.now();
-//
-//    }
+    }
 
     public User() {
     }
@@ -173,6 +125,46 @@ public class User {
         this.emailAddress = emailAddress;
     }
 
+    public String getAddressLine() {
+        return addressLine;
+    }
+
+    public void setAddressLine(String addressLine) {
+        this.addressLine = addressLine;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return State;
+    }
+
+    public void setState(String state) {
+        State = state;
+    }
+
+    public String getZipCode() {
+        return zipCode;
+    }
+
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     public LocalDate getCreateDate() {
         return createDate;
     }
@@ -187,5 +179,12 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String userName(){
+        return firstName+" "+midName+" "+lastName;
+    }
+    public String userAddress(){
+        return addressLine+"\n"+city+", "+State+"\n"+zipCode+", "+country;
     }
 }
